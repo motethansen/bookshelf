@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<!--<div id='signup-view' class='well'>-->
+   <!--<div class="jumbotron">-->
+      <!--<h1> Sign up a new user!</h1>-->
+      <!--<form action="" method="POST" name="form">-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="username">Username</label>-->
+            <!--{{ form.username(class_="form-control" ,id="username",required="required",type="text",value="",placeholder="Enter UserName") }}-->
+         <!--</div>-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="first_name">First Name</label>-->
+            <!--{{ form.first_name(class_="form-control" ,id="first_name",required="required",type="text",value="",placeholder="Enter First Name") }}-->
+         <!--</div>-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="last_name">Last Name</label>-->
+            <!--{{ form.last_name(class_="form-control" ,id="last_name",required="required",type="text",value="",placeholder="Enter Last Name") }}-->
+         <!--</div>-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="email">Email</label>-->
+            <!--{{ form.email(class_="form-control" ,id="email",required="required",type="text",value="",placeholder="Enter Email") }}-->
+         <!--</div>-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="password">Password</label>-->
+            <!--{{ form.password(class_="form-control" ,id="password",required="required",type="text",value="",placeholder="Enter Password") }}-->
+         <!--</div>-->
+         <!--<div class="form-group">-->
+            <!--<label class="sr-only" for="confirm">Confirm</label>-->
+            <!--{{ form.confirm(class_="form-control" ,id="confirm",required="required",type="text",value="",placeholder="Enter Confirm") }}-->
+         <!--</div>-->
+         <!--<button class="btn btn-lg btn-primary btn-block" type="button">Submit</button>-->
+      <!--</form>-->
+   <!--</div>-->
+<!--</div>-->
+<div id='signup-view' class='well'>
+      <h3> Sign up a new user!</h3>
+      <form action="" method="POST" name="form">
+         <div class="form-group">
+            <label>Username</label>
+            {{ form.username }}
+         </div>
+         <div class="form-group">
+            <label>first name</label>
+            {{ form.first_name }}
+         </div>
+         <div class="form-group">
+            <label>last name</label>
+            {{ form.last_name }}
+         </div>
+         <div class="form-group">
+            <label>Email</label>
+            {{ form.email }}
+         </div>
+         <div class="form-group">
+            <label>Password</label>
+            {{ form.password }}
+         </div>
+         <div class="form-group">
+            <label>Confirm</label>
+            {{ form.confirm }}
+         </div>
+         <button class="btn btn-default" type="submit">Submit</button>
+      </form>
+</div>
+{% endblock %}

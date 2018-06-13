@@ -9,6 +9,8 @@ from flask_principal import Principal, Identity, AnonymousIdentity, identity_cha
 import os
 import uuid
 from flask_paginate import Pagination, get_page_parameter, get_page_args
+from bson.objectid import ObjectId
+
 
 
 # class ShoppingCart():
@@ -93,11 +95,6 @@ def get_user():
 @admin_permission.require()
 def do_admin_index():
     return Response('Only if you are an admin')
-
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
 
 
 @app.errorhandler(404)
@@ -210,12 +207,12 @@ def productDescription():
     # loggedIn, firstName, noOfItems = getLoginDetails()
     productId = request.args.get('productId')
     # search the mongodb for the product
-    print ("sku :") + str(productId)
 
-    bookdetails = app.config['LIBRARY_COLLECTION'].find_one({"sku": productId})
-    print ('bookdetails :') + bookdetails.title
-    return render_template("productDescription.html", data=bookdetails, loggedIn=loggedIn, firstName=firstName,
-                           noOfItems=noOfItems)
+    bookdetails = app.config['BOOKIMPORT_COLLECTION'].find_one({"_id": ObjectId(productId)})
+
+    #return render_template("productDescription.html", data=bookdetails, loggedIn=loggedIn, firstName=firstName,
+    #                       noOfItems=noOfItems)
+    return render_template("productDescription.html", data=bookdetails)
 
 
 @app.route('/logout')

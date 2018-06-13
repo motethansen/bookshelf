@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} - Home{% endblock %}
-{% block content %}
+{% block page_content %}
 
 <form id="submitIt" name="submitIt" action="/GetFile" method="Post" onsubmit="return validate(this)">
 
@@ -8,39 +8,37 @@
 {{ pagination.links }}
 
 <!--div class="w3-row-padding" -->
-<div class="w3-row" class="cd-gallery">
+<div class="row" class="cd-gallery">
 
-
+<div class="row">
 {% for book in books %}
 
-
-<div class="w3-third w3-container" class="cd-single-item">
-<div class="w3-card-2 w3-margin" style="width:100%">
-  <div class="w3-display-container">
-    <div class="text-center" id="book-image bookimage-centered">
+  <div class="clearfix visible-xs"></div>
+  <div class="col-xs-6 col-sm-3">
+        <a href="/productDescription?productId={{book.sku}}" data-productid="{{book.sku}}" data-title="{{book.title}}" data-author="{{book.author}}" data-price="{{book.price}}" data-imagefile="{{book.image}}" class="btn btn-warning cd-add-to-cart">
+          <span class="add-to-cart-btn-text">Add to basket
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          </span>
+        </a>
+        <a data-productindex="{{book._id}}" href="/productDescription?productId={{book._id}}" class="product-id-dscf0001 product-link btn btn-default">
+          <i class="glyphicon glyphicon-info-sign"></i>
+        </a>
+            <!-- filename='img/image-200x200.svg' -->
     	<img src="{{ url_for('static', filename='img/image-200x200.svg') }}" class="img-rounded" alt="">
-      <h2 id="h-price" >
-        <span class="h2-span">DKK {{book.price}}
+        <img src="{{book.image}}" class="book_image" alt="">
+        <h2 id="h-price" >
+          <span class="h2-span">DKK {{book.price}}
           <!-- <span class="spacer">&nbsp;</span> -->
-        </span>
-      </h2>
-    </div>
-  	<h3 id="bookcard">{{book.title}}&nbsp;</h3>
-  	<p id="bookcard">{{book.author}}&nbsp;</p>
-  	<div class="btn-group product-add-to-cart-btn-container-dscf0001 add-to-cart" role="group">
-      <a href="/productDescription?productId={{book.sku}}" data-productid="{{book.sku}}" data-title="{{book.title}}" data-author="{{book.author}}" data-price="{{book.price}}" data-imagefile="{{book.image}}" class="btn btn-warning cd-add-to-cart">
-        <span class="add-to-cart-btn-text">Add to basket
-          <i class="glyphicon glyphicon-shopping-cart"></i>
-        </span>
-      </a>
-      <a data-productindex="{{book.sku}}" href="#/product/uid-dscf0001/a-cross-wall-shelf" class="product-id-dscf0001 product-link btn btn-default">
-        <i class="glyphicon glyphicon-info-sign"></i>
-      </a>
-    </div>
+          </span>
+        </h2>
+    <!-- /div -->
+  	    <h3 id="bookcard">{{book.title}}&nbsp;</h3>
+  	    <p id="bookcard">{{book.author}}&nbsp;</p>
+  	<!-- div class="btn-group product-add-to-cart-btn-container-dscf0001 add-to-cart" role="group" -->
   </div>
-</div>
-</div>
+
 {% endfor %}
+  </div>
 </div>
 
 {{ pagination.links }}

@@ -15,6 +15,7 @@
 
   <div class="clearfix visible-xs"></div>
   <div class="col-xs-6 col-sm-3">
+      <div class="book">
         <a href="/productDescription?productId={{book.sku}}" data-productid="{{book.sku}}" data-title="{{book.title}}" data-author="{{book.author}}" data-price="{{book.price}}" data-imagefile="{{book.image}}" class="btn btn-warning cd-add-to-cart">
           <span class="add-to-cart-btn-text">Add to basket
             <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -24,9 +25,11 @@
           <i class="glyphicon glyphicon-info-sign"></i>
         </a>
             <!-- filename='img/image-200x200.svg' -->
-    	<img src="{{ url_for('static', filename='img/image-200x200.svg') }}" class="img-rounded" alt="">
-        <img src="{{book.image}}" class="book_image" alt="">
-        <h2 id="h-price" >
+    	<!--img src="{{ url_for('static', filename='img/image-200x200.svg') }}" class="img-rounded" alt="" -->
+          <div class="imagebookarea">
+            <img src="{{book.image}}" class="book_image" alt="">
+          </div>
+          <h2 id="h-price" >
           <span class="h2-span">DKK {{book.price}}
           <!-- <span class="spacer">&nbsp;</span> -->
           </span>
@@ -34,6 +37,7 @@
     <!-- /div -->
   	    <h3 id="bookcard">{{book.title}}&nbsp;</h3>
   	    <p id="bookcard">{{book.author}}&nbsp;</p>
+      </div>
   	<!-- div class="btn-group product-add-to-cart-btn-container-dscf0001 add-to-cart" role="group" -->
   </div>
 
